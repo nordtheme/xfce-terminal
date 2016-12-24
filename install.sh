@@ -104,7 +104,7 @@ NORD_XFCE_TERMINAL_SCRIPT_OPTS=`getopt -o vht: --long verbose,help,themefile: -n
 THEME_FILE=src/nord.theme
 VERBOSE=false
 LOCAL_INSTALL_DIR=~/.local/share/xfce4/terminal/colorschemes
-NORD_XFCE_TERMINAL_VERSION=
+NORD_XFCE_TERMINAL_VERSION=0.1.0
 
 eval set -- "$NORD_XFCE_TERMINAL_SCRIPT_OPTS"
 while true; do
