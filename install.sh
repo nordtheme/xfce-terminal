@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# title      Install Script                                        +
-# project    nord-xfce-terminal                                    +
-# repository https://github.com/arcticicestudio/nord-xfce-terminal +
-# author     Arctic Ice Studio                                     +
-# email      development@arcticicestudio.com                       +
-# copyright  Copyright (C) 2016                                    +
-# ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
+# Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+
+# Project:    Nord XFCE Terminal
+# Repository: https://github.com/arcticicestudio/nord-xfce-terminal
+# License:    MIT
+
 set -e
 
 _ct_error="\e[0;31m"
