@@ -15,6 +15,7 @@ Based on the <a href="https://github.com/arcticicestudio/nord">Nord</a> color pa
 ### Installation
 #### Manual
 Copy the [`nord.theme`](https://github.com/arcticicestudio/nord-xfce-terminal/blob/develop/src/nord.theme) file to the local configuration directory `~/.local/share/xfce4/terminal/colorschemes`.
+For Arch users, the local configuration directory could be in `/usr/share/xfce4/terminal/colorschemes`.
 
 #### Install Script
 The included `install.sh` shell script can be used for an automated installation.  
