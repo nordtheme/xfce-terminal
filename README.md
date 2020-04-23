@@ -48,7 +48,7 @@ Syntax: `install.sh [OPTIONS]`
 ### Contribution
 Please report issues/bugs, feature requests and suggestions for improvements to the [issue tracker](https://github.com/arcticicestudio/nord-xfce-terminal/issues).
 
-<p align="center"><img src="https://cdn.rawgit.com/arcticicestudio/nord/develop/src/assets/banner-footer-mountains.svg" /></p>
+<p align="center"><img src="https://raw.githubusercontent.com/arcticicestudio/nord-docs/develop/assets/images/nord/repository-footer-separator.svg?sanitize=true" /></p>
 
 <p align="center">Copyright &copy; 2016-present Arctic Ice Studio</p>
 
