@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
-# Copyright (c) 2016-present Arctic Ice Studio <development@arcticicestudio.com>
-# Copyright (c) 2016-present Sven Greb <code@svengreb.de>
+# Copyright (c) 2016-present Sven Greb <development@svengreb.de>
+# This source code is licensed under the MIT license found in the license file.
 
-# Project:    Nord XFCE Terminal
-# Repository: https://github.com/arcticicestudio/nord-xfce-terminal
-# License:    MIT
-
-set -e
+# nounset: Treat unset variables and parameters as an error when performing parameter expansion
+# errexit: Exit immediately if any command exits with a non-zero status
+set -o nounset -o errexit
 
 _ct_error="\e[0;31m"
 _ct_success="\e[0;32m"
@@ -26,9 +24,9 @@ _c_reset="\e[0m"
 __help() {
   printf "${_ctb}Usage: ${_ct_primary}install.sh ${_ctb_subtle}[OPTIONS]\n"
   printf "  ${_ctb_highlight}-h${_ct},${_ctb_highlight} --help                      ${_ct}Help\n"
-  printf "  ${_ctb_highlight}-v${_ct},${_ctb_highlight} --verbose                   ${_ct}Verbose output\n${_ctb_reset}"
+  printf "  ${_ctb_highlight}-v${_ct},${_ctb_highlight} --verbose                   ${_ct}Verbose output\n${_c_reset}"
   printf "  ${_ctb_highlight}-t${_ct},${_ctb_highlight} --themefile <THEME_FILE>  \
-${_ct}Use the specified color theme file\n${_ctb_reset}"
+${_ct}Use the specified color theme file\n${_c_reset}"
 }
 
 __cleanup() {
@@ -97,9 +95,9 @@ __validate_file() {
   fi
 }
 
-trap "printf '${_ctb_error}User aborted.${_ctb_reset}\n' && exit 1" SIGINT SIGTERM
+trap "printf '${_ctb_error}User aborted.${_c_reset}\n' && exit 1" SIGINT SIGTERM
 
-NORD_XFCE_TERMINAL_SCRIPT_OPTS=`getopt -o vht: --long verbose,help,themefile: -n 'install.sh' -- "$@"`
+NORD_XFCE_TERMINAL_SCRIPT_OPTS=$(getopt -o vht: --long verbose,help,themefile: -n 'install.sh' -- "$@")
 THEME_FILE=src/nord.theme
 VERBOSE=false
 LOCAL_INSTALL_DIR=~/.local/share/xfce4/terminal/colorschemes
@@ -108,12 +106,24 @@ NORD_XFCE_TERMINAL_VERSION=0.1.0
 eval set -- "$NORD_XFCE_TERMINAL_SCRIPT_OPTS"
 while true; do
   case "$1" in
-    -v | --verbose ) VERBOSE=true; shift ;;
-    -h | --help ) __help; exit 0; break ;;
-    -t | --themefile )
-      THEME_FILE="$2"; shift 2 ;;
-    -- ) shift; break ;;
-    * ) break ;;
+    -v | --verbose)
+      VERBOSE=true
+      shift
+      ;;
+    -h | --help)
+      __help
+      exit 0
+      break
+      ;;
+    -t | --themefile)
+      THEME_FILE="$2"
+      shift 2
+      ;;
+    --)
+      shift
+      break
+      ;;
+    *) break ;;
   esac
 done
 
